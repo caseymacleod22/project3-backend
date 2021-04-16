@@ -14,15 +14,22 @@ async function index(req, res) {
 
 async function create(req, res) {
     try {
-      const stadium = await Stadium.create(req.body)
-       res.status(201).json(stadium)
+      const stadiums = await Stadium.create(req.body)
+       res.status(201).json(stadiums)
         // index(req, res)
     } catch (error) {
         res.status(401).json({error: 'something went wrong'})
     }
 }
 
+async function deleteStadium(req, res) {
+    res.json(await Stadium.findByIdAndRemove(req.params.id))
+    // res.send('/')
+}
+
+
 module.exports = {
     index,
     create,
+    delete: deleteStadium,
 }

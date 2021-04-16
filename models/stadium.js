@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 const stadiumSchema = new Schema({
     stadiumName: String,
     location: String,
+    beenThere: Boolean,
 }, {timestamps: true})
 
 
